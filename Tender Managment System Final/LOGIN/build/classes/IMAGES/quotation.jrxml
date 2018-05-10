@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f1ed2870-7d06-4d3d-8ba8-df0a3683a74b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     generate_quotation.`date` AS generate_quotation_date,
+     generate_quotation.`referenceno` AS generate_quotation_referenceno,
+     generate_quotation.`patternno` AS generate_quotation_patternno,
+     generate_quotation.`ntnno` AS generate_quotation_ntnno,
+     generate_quotation.`description` AS generate_quotation_description,
+     generate_quotation.`delivery` AS generate_quotation_delivery,
+     generate_quotation.`validity` AS generate_quotation_validity,
+     generate_quotation.`lprno` AS generate_quotation_lprno,
+     generate_quotation.`itconfirmed` AS generate_quotation_itconfirmed,
+     generate_quotation_li.`unitpricegst` AS generate_quotation_li_unitpricegst,
+     generate_quotation_li.`quantity` AS generate_quotation_li_quantity
+FROM
+     `generate_quotation` generate_quotation,
+     `generate_quotation_li` generate_quotation_li]]>
+	</queryString>
+	<field name="generate_quotation_date" class="java.sql.Date"/>
+	<field name="generate_quotation_referenceno" class="java.lang.String"/>
+	<field name="generate_quotation_patternno" class="java.lang.String"/>
+	<field name="generate_quotation_ntnno" class="java.lang.String"/>
+	<field name="generate_quotation_description" class="java.lang.String"/>
+	<field name="generate_quotation_delivery" class="java.lang.String"/>
+	<field name="generate_quotation_validity" class="java.lang.String"/>
+	<field name="generate_quotation_lprno" class="java.lang.String"/>
+	<field name="generate_quotation_itconfirmed" class="java.lang.String"/>
+	<field name="generate_quotation_li_unitpricegst" class="java.lang.Integer"/>
+	<field name="generate_quotation_li_quantity" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<image>
+				<reportElement x="-20" y="0" width="595" height="64" uuid="132f12c2-469a-4ffb-a5b1-4f8c997ab217"/>
+				<imageExpression><![CDATA["wood.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Title" x="0" y="5" width="263" height="33" uuid="e77898ca-8131-4520-ba71-b73c5bc88039"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Wood Title]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="63" y="39" width="200" height="22" forecolor="#FFFFFF" uuid="e7100cae-6ac5-458c-b2cb-15fba04e032b"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Wood SubTitle]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="50739571-b99e-4a26-b957-d241d5e5e752"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="50" height="15" uuid="db42446b-e31a-427a-8be5-c1ee01e32db7"/>
+				<text><![CDATA[generate_quotation_date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="50" y="19" width="50" height="15" uuid="9741a5f9-48cd-47bc-9ad3-8dc7652a627d"/>
+				<text><![CDATA[generate_quotation_referenceno]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="100" y="19" width="50" height="15" uuid="34d02314-0b00-4832-8f1d-345415dc22d6"/>
+				<text><![CDATA[generate_quotation_patternno]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="150" y="19" width="50" height="15" uuid="480e6cd8-82bd-4d19-bba8-bf8c7f534f24"/>
+				<text><![CDATA[generate_quotation_ntnno]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="200" y="19" width="50" height="15" uuid="a92a8c7d-4a9d-4a28-af70-319129c0cf7d"/>
+				<text><![CDATA[generate_quotation_description]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="250" y="19" width="50" height="15" uuid="c415e0b8-fc48-4726-b0ca-299ba0e22eeb"/>
+				<text><![CDATA[generate_quotation_delivery]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="300" y="19" width="50" height="15" uuid="20467511-27c1-4660-8ab5-3d6e0cdf3ac6"/>
+				<text><![CDATA[generate_quotation_validity]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="350" y="19" width="50" height="15" uuid="5006b914-cbe6-4c20-9459-78112b3b9a5d"/>
+				<text><![CDATA[generate_quotation_lprno]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="400" y="19" width="50" height="15" uuid="5e186846-376a-4c90-bab5-e30340b70e35"/>
+				<text><![CDATA[generate_quotation_itconfirmed]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="450" y="19" width="50" height="15" uuid="739b8338-6428-4135-be6d-6647b47a8882"/>
+				<text><![CDATA[generate_quotation_li_unitpricegst]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="500" y="19" width="50" height="15" uuid="71c17b27-09ec-44b7-9c44-06627d859638"/>
+				<text><![CDATA[generate_quotation_li_quantity]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="2bbf9552-119f-4de2-bb71-0978ef863bd4"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="50" height="15" uuid="f50998c0-3e17-4a48-8bbb-817bc929c801"/>
+				<textFieldExpression><![CDATA[$F{generate_quotation_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="50" y="0" width="50" height="15" uuid="8c52b3b9-5452-46e3-90d5-c35894618985"/>
+				<textFieldExpression><![CDATA[$F{generate_quotation_referenceno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="100" y="0" width="50" height="15" uuid="ade179f5-3304-4730-82e9-e8708c7d6a78"/>
+				<textFieldExpression><![CDATA[$F{generate_quotation_patternno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="150" y="0" width="50" height="15" uuid="012b5056-7b75-466e-aed0-2dc39b8befc0"/>
+				<textFieldExpression><![CDATA[$F{generate_quotation_ntnno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="200" y="0" width="50" height="15" uuid="d90044de-15de-4b27-95f1-62e3787a99f1"/>
+				<textFieldExpression><![CDATA[$F{generate_quotation_description}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="250" y="0" width="50" height="15" uuid="f987fa55-c258-4e70-8d75-9979a961b1a8"/>
+				<textFieldExpression><![CDATA[$F{generate_quotation_delivery}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="300" y="0" width="50" height="15" uuid="6a95d263-6609-4d3e-9eb5-6a9791b63630"/>
+				<textFieldExpression><![CDATA[$F{generate_quotation_validity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="350" y="0" width="50" height="15" uuid="f1430546-6166-4760-9a1d-5c8497ffac68"/>
+				<textFieldExpression><![CDATA[$F{generate_quotation_lprno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="400" y="0" width="50" height="15" uuid="4b67ef90-3570-4267-9c55-05738fa5735e"/>
+				<textFieldExpression><![CDATA[$F{generate_quotation_itconfirmed}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="450" y="0" width="50" height="15" uuid="bae8fe73-a58b-4813-ab35-95d8a3bd64e5"/>
+				<textFieldExpression><![CDATA[$F{generate_quotation_li_unitpricegst}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="500" y="0" width="50" height="15" uuid="7f9968dd-7bfe-4bf7-956a-a2e9aa7cc3c1"/>
+				<textFieldExpression><![CDATA[$F{generate_quotation_li_quantity}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="4cfe224d-adf8-4c5e-9922-4804046deef9"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="510647fd-2b40-41cc-9b21-806aff9184bd"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="c8f2f062-f3b3-4c1b-802b-de9fe36c3804"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="1317b5ba-8511-40b3-a01f-88e5eb7b3f4a"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

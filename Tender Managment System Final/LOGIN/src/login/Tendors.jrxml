@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Tenders" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="164edb17-cc0b-4859-8a87-d08cf511a42d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[SELECT
+     tender.`tid` AS tender_tid,
+     tender.`lprno` AS tender_lprno,
+     tender.`partno` AS tender_partno,
+     tender.`nsnno` AS tender_nsnno,
+     tender.`description` AS tender_description,
+     tender.`quantity` AS tender_quantity,
+     tender.`deno` AS tender_deno,
+     tender.`date` AS tender_date,
+     tender.`clientid` AS tender_clientid,
+     client.`image` AS client_image
+FROM
+     `tender` tender,
+     `client` client where tender.`clientid` = client.`clientid`   ]]>
+	</queryString>
+	<field name="tender_tid" class="java.lang.Integer"/>
+	<field name="tender_lprno" class="java.lang.String"/>
+	<field name="tender_partno" class="java.lang.String"/>
+	<field name="tender_nsnno" class="java.lang.String"/>
+	<field name="tender_description" class="java.lang.String"/>
+	<field name="tender_quantity" class="java.lang.String"/>
+	<field name="tender_deno" class="java.lang.String"/>
+	<field name="tender_date" class="java.lang.String"/>
+	<field name="tender_clientid" class="java.lang.Integer"/>
+	<field name="client_image" class="java.lang.Object"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="102" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="797" height="66" backcolor="#000000" uuid="19ee6891-87a6-470a-96e0-06c080fe52de"/>
+				<staticText>
+					<reportElement style="Title" x="0" y="0" width="541" height="66" uuid="108cc83e-5be6-4007-bcfb-08c92add7c8f"/>
+					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
+					<textElement verticalAlignment="Bottom">
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[AL DOST & COMPANY]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="SubTitle" x="652" y="37" width="145" height="29" uuid="24055ed5-e8d1-469d-bb3f-a1b28a857efe"/>
+					<textElement textAlignment="Right">
+						<font size="22" isBold="false"/>
+					</textElement>
+					<text><![CDATA[TENDERS]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="70" width="797" height="32" forecolor="#000000" backcolor="#CC0000" uuid="01204c2d-45ad-4c8c-b180-7dbfe66d49a2"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="653" y="12" width="144" height="20" forecolor="#FFFFFF" uuid="5e337f12-854b-4fc1-bc56-8db8619063f2"/>
+					<textElement textAlignment="Right">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="18" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="20" y="0" width="88" height="18" forecolor="#000000" uuid="a62d7642-4c7d-4906-964c-7b936b4ab0ac"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[tender_tid]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="98" y="0" width="88" height="18" forecolor="#000000" uuid="afcd8be4-27e1-4e4b-9fda-c84357d969ac"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[tender_lprno]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="199" y="0" width="99" height="18" forecolor="#000000" uuid="b7b6c9ee-8508-4433-9fea-87492b794a25"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[tender_nsnno]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="318" y="0" width="127" height="18" forecolor="#000000" uuid="61185cc9-e959-4e95-aeac-c2e316868cdc"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[tender_description]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="445" y="0" width="88" height="18" forecolor="#000000" uuid="96c95790-9155-4e33-b215-600c88a48f4b"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[tender_quantity]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="541" y="0" width="88" height="18" forecolor="#000000" uuid="81c17e75-54c8-403d-a488-5f3b3ad380b7"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[tender_deno]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="621" y="0" width="88" height="18" forecolor="#000000" uuid="fd63eccb-f686-4ed3-bb6e-51354b5a8ed1"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[tender_date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="709" y="0" width="88" height="18" forecolor="#000000" uuid="02da0561-255a-4329-889b-e954a95560d7"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[tender_clientid]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="102" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="797" height="99" uuid="230b5627-f1aa-4278-b25d-8a86b837546d"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="0" y="0" width="88" height="99" uuid="a2b1ac0b-d17f-47dc-ae3f-e8c3762e1856"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tender_tid}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="88" y="0" width="88" height="99" uuid="e0001555-ac1c-43b8-a1b1-77f11e35d233"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tender_lprno}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="186" y="0" width="119" height="99" uuid="1674dca6-7c9b-4483-91b0-6278af933472"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tender_nsnno}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="305" y="0" width="140" height="99" uuid="595f55ad-6236-4586-b466-196a9f1686b7"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tender_description}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="445" y="0" width="88" height="99" uuid="97e2f8aa-ec26-4608-9326-374ce1c6dbb3"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tender_quantity}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="533" y="0" width="88" height="99" uuid="ba542ab3-c8ee-45e3-8913-9c8d0bf91fd2"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tender_deno}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="621" y="0" width="88" height="99" uuid="a2f211b0-4d4c-4c81-b4d8-f07f8a596033"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tender_date}.toString()]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="709" y="0" width="88" height="99" uuid="0a17103a-c78d-4bf9-a3c3-76c4097d0984"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tender_clientid}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="af252bac-7dcd-46ff-ad77-1dca89cb564d"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="25" forecolor="#D0B48E" backcolor="#000000" uuid="370eb4ad-f2eb-4436-9571-1419446ca26c"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="757" y="3" width="40" height="20" forecolor="#FFFFFF" uuid="06275346-ffde-4946-aefb-aabaff3450ae"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="677" y="3" width="80" height="20" forecolor="#FFFFFF" uuid="207a03cc-9e72-456d-ba6c-a5a74e13b7ca"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="3" width="197" height="20" forecolor="#FFFFFF" uuid="b0e02515-66dd-432c-8792-49860682e28a"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
